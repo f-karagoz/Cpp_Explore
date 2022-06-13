@@ -1,5 +1,8 @@
-// cpp_explore_1.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
+/**
+* @file     cpp_explore_1.cpp
+* @author   Furkan Karagoz
+* @date     13 June 2022
+*/
 
 #include <iostream>
 #include <string>
@@ -8,33 +11,68 @@ using namespace std;
 class myClass
 {
 public:
+    myClass();
+    myClass(int, char, string);
+    void setInt( int );
+    int getInt( void );
+    char getChar(void);
+    string getString(void);
+private:
     int myInt;
     char myChar;
     string myString;
 };
 
+/**
+ * @brief sets the instances to default vlaues
+*/
+myClass::myClass()
+{
+    myInt = 99;
+    myChar = 'R';
+    myString = "default_val";
+
+    std::cout << "Default ctor called.";
+}
+
+myClass::myClass(int parInt, char parChar, string parSting)
+{
+    myInt = parInt;
+    myChar = parChar;
+    myString = parSting;
+
+    std::cout << "Custom ctor called.";
+}
+
+void myClass::setInt(int parInt)
+{
+    myInt = parInt;
+}
+
+int myClass::getInt(void)
+{
+    return myInt;
+}
+
+char myClass::getChar(void)
+{
+    return myChar;
+}
+
+string myClass::getString(void)
+{
+    return myString;
+}
+
 int main()
 {
     myClass myObj;
 
-    myObj.myInt = 10;
-    myObj.myChar = 'A';
-    myObj.myString = "HELLO";
+    myObj.setInt(100);
 
     std::cout << "Hello World!\n";
-    std::cout << "Int: " << myObj.myInt << "\tChar: " << myObj.myChar << "\tString: " << myObj.myString << "\n";
+    std::cout << "Int: " << myObj.getInt() << "\tChar: " << myObj.getChar() << "\tString: " << myObj.getString() << "\n";
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
 
 /*  Steps Followed for Git
 * 
@@ -45,9 +83,4 @@ int main()
 *   5.  Git commit -m "" commit message added
 *   6.  git remote add Cpp_Explore https://github.com/f-karagoz/Cpp_Explore.git
 *   7.  git push and voila!
-*
-*
-*
-*
-*
 */
